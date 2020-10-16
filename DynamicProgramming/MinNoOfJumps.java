@@ -10,13 +10,22 @@ public class MinNoOfJumps {
 
 	private static int minJumps(int[] arr, int length) {
 		int temp[] = new int[length];
-		for(int i =0;i<length;i++)
+
+		int i, j;
+
+		if (length == 0 || arr[0] == 0)
+			return Integer.MAX_VALUE;
+
+		temp[0] = 0;
+		for (i = 1; i < length; i++) {
 			temp[i] = Integer.MAX_VALUE;
-		for(int i =0 ;i<length;i++)
-			for(int j =0;j<i;j++)
-			{
-				
+			for (j = 0; j < i; j++) {
+				if (i <= j + arr[j] && temp[j] != Integer.MAX_VALUE) {
+					temp[i] = Math.min(temp[i], temp[j] + 1);
+					break;
+				}
 			}
-		return 0;
+		}
+		return temp[length - 1];
 	}
 }

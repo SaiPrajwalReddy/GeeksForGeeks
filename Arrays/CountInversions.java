@@ -25,7 +25,7 @@ public class CountInversions {
 			int mid = (low + high )/ 2;			
 			invCount += mergeSort(arr,temp, low, mid);
 			invCount += mergeSort(arr,temp, mid + 1, high);
-			//invCount += merge(arr,temp, low, mid + 1, high);		
+			invCount += merge(arr,temp, low, mid + 1, high);		
 		}
 
 		return invCount;
